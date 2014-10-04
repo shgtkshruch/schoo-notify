@@ -12,7 +12,60 @@ html(lang="ja")
     
     link(rel='stylesheet', href='styles/style.css', media='all')
   body
-    h1 Hello Github Pages
+    header.section.hero#top
+      h1.hero__title Notify
+      h2.hero__body A great new free psd theme to showcase  your new application. 
+      ul
+        - for(var i = 0; i < 3; i++)
+          li
+            a(href="#")
+              img(src="images/hero__icon-#{i+1}.png")
+
+    section.section#feature
+      - each t, i in ['Editable Theme', 'Flat Design', 'Reach Your Audience']
+        .item
+          .item__image
+            img(src="images/item__img-#{i+1}.png")
+          .item__title
+            h1 #{t}
+          .item_body
+            p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse fringilla fringilla.
+    
+    section.section#notify
+      h1.section__title Get Notified Of Any Updates!
+      p.section__body Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse fringilla fringilla nisl congue congue. Maecenas nec condimentum libero, at elementum mauris. Phasellus eget nisi dapibus, ultricies nisl at, hendrerit risusuis ornare luctus id sollicitudin ante lobortis at.
+      form.form
+        .form__input
+          input(type="text")
+        .form__btn
+          input(type="submit")
+      .video
+        img(src="images/video.jpg")
+
+    section.section#testimonial
+      .section__body.section__body--em
+        p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris interdum velit vitae nulla molestie eu commodo nulla dapib us. Donec id sollicitudin urna. Integer at dui ac leo fermentum varius eleifend ut.
+      .section__title.section__title--secondary
+        h2 Jane Hunt
+      .testimonial__img
+        img(src="images/faces.jpg")
+      .section__title
+        h1 Say Hi & Get in Touch
+      .section__body
+        p Lorem ipsum dolor sit amet, consectetur adipiscing elit suspendisse. 
+      .testimonial__img
+        ul
+          - for(var i = 0; i < 6; i++)
+            li
+              a(href="#")
+                img(src="images/sns-icon-#{i+1}.png")
+
+    footer.footer#footer
+      nav
+        ul
+          - each l in ['Contact', 'Download', 'Press', 'Email', 'Support', 'Privacy Policy']
+            li
+              a(href="#") #{l}
 
     // build:js scripts/vendor.js
     // bower:js
