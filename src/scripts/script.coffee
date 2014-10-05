@@ -12,7 +12,7 @@ drow_canvas = ->
   cw = canvas.width = window.innerWidth
   ch = canvas.height = header.clientHeight
   circles = []
-  num = cw / 10
+  num = cw / 7
 
   class Circle
     constructor: ->
@@ -20,7 +20,7 @@ drow_canvas = ->
       @y = ch + Math.random() * 100
       @r = 1 + Math.random() * 7
       @alpha = 0.1 + Math.random() * 0.3
-      @velocity = 0.3 + Math.random()
+      @velocity = 0.5 + Math.random() * 2
 
     draw: ->
       @alpha -= 0.0003

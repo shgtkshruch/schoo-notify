@@ -4,7 +4,7 @@ $radius: 5px;
 .btn {
   position: relative;
   display: block;
-  margin: 2em 0;
+  margin: 1.5em 0;
   padding: .8em 2em;
   border: 1px solid #000;
   font-size: 18px;
@@ -32,7 +32,7 @@ $radius: 5px;
       left: 0;
       width: 0;
       height: 100%;
-      background-color: rgba(0, 0, 0, 0.2);
+      background-color: rgba(0, 0, 0, 0.3);
       transition: width $duration;
       z-index: -1;
     }
