@@ -71,7 +71,7 @@ img {
   padding: 100px 0;
   transform: translate3d(0,0,0);
   z-index: -1;
-  &:after {
+  &:before {
     content: '';
     position: absolute;
     top: 0;
@@ -81,8 +81,30 @@ img {
     background-image: url(../images/hero.jpg);
     background-size: cover;
     background-repeat: no-repeat;
-    transition: .5s;
     z-index: -1;
+  }
+  &:after {
+    content: '';
+    position: absolute;
+    top: 85px;
+    left: 100%;
+    width: 100%;
+    height: 100%;
+    background-image: url(../images/iphone.png);
+    background-repeat: no-repeat;
+    z-index: 1;
+    animation-name: outin;
+    animation-duration: 1.5s;
+    animation-delay: 4s;
+    animation-fill-mode: forwards;
+    @keyframes outin {
+      0% {
+        left: 100%;
+      }
+      100% {
+        left: 56%;
+      }
+    }
   }
   &__title {
     margin: 25px 0;
