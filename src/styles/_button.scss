@@ -24,8 +24,22 @@ $radius: 5px;
     border-color: white;
     text-transform: uppercase;
     transition: all $duration; 
+    z-index: 1;
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.2);
+      transition: width $duration;
+      z-index: -1;
+    }
     &:hover {
-      background-color: rgba(255,255,255,.3);
+      &:after {
+        width: 100%;
+      }
       .svg-icon {
         transform: rotate(360deg);
       }
@@ -64,7 +78,8 @@ $radius: 5px;
       border-radius: $radius;
 
       transform-origin: 50% 50% $content-box;
-      transition: transform .3s;
+      transition-property: transform;
+      transition-duration: $duration;
     }
     &:before {
       content: 'read more';
@@ -100,6 +115,8 @@ $radius: 5px;
   right: 32px;
   margin: auto;
   transition: $duration;
+  transition-property: transform;
+  transition-duration: $duration;
   path {
     fill: white;
   }

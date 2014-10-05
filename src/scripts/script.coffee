@@ -20,7 +20,7 @@ drow_canvas = ->
       @y = ch + Math.random() * 100
       @r = 1 + Math.random() * 7
       @alpha = 0.1 + Math.random() * 0.3
-      @velocity = Math.random()
+      @velocity = 0.3 + Math.random()
 
     draw: ->
       @alpha -= 0.0003
