@@ -27,7 +27,6 @@
     font-size: 28px;
     color: #fff;
     background-color: transparent;
-    transition: .5s;
   }
   .testimonial__nav & {
     width: 35px;
@@ -45,12 +44,11 @@
   }
 }
 
-$duration: 1s;
+$duration: .8s;
 $delay-init: 0s;
-$delay-unit: $duration / 8;
+$delay-unit: $duration / 10;
 
 .popup {
-
   animation-name: pop;
   animation-duration: .5s;
   animation-fill-mode: forwards;
@@ -96,7 +94,7 @@ $delay-unit: $duration / 8;
 .popdown {
   & .fa {
     animation-name: bgcd;
-    animation-duration: .5s;
+    animation-duration: .3s;
     animation-fill-mode: forwards;
     animation-timing-function: linear;
     background-color: $green;

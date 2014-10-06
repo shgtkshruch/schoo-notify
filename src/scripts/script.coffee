@@ -16,20 +16,22 @@ drow_canvas = ->
   cw = canvas.width = window.innerWidth
   ch = canvas.height = header.clientHeight
   circles = []
-  num = cw / 12
+  num = cw / 3
+
+  header.style.pointerEvents = 'none'
 
   class Circle
     constructor: ->
       @x = Math.random() * cw
       @y = ch + Math.random() * 100
-      @r = 1 + Math.random() * 10
+      @r = 1 + Math.random() * 30
       @alpha = 0.1 + Math.random() * 0.3
-      @velocity = 0.3 + Math.random() * 2
+      @velocity = 3 + Math.random() * 5
 
     draw: ->
       @alpha -= 0.0003
 
-      @constructor() if @alpha < 0 or @y < 0
+      # @constructor() if @alpha < 0 or @y < 0
 
       ctx.beginPath()
       ctx.arc @x, @y, @r, 0, Math.PI * 2, false
@@ -39,8 +41,9 @@ drow_canvas = ->
 
   for i in [0...num]
     circles.push new Circle()
-
+  
   (draw = ->
+    return if timer is 'end'
     ctx.clearRect 0, 0, cw, ch
 
     circles.forEach (c) ->
@@ -48,6 +51,15 @@ drow_canvas = ->
 
     requestAnimationFrame draw
   )()
+
+  timer = ''
+  setTimeout ->
+    timer = 'end'
+  , 5000
+
+  setTimeout ->
+    header.style.pointerEvents = 'auto'
+  , 3000
 
 scroll = ->
   scroll = window.scrollY

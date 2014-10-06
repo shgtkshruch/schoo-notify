@@ -19,13 +19,13 @@ $radius: 5px;
     margin: 1em 0;
     font-size: 20px;
     letter-spacing: .1em;
-    color: white;
+    color: #fff;
     background-color: rgba(0,0,0,.1);
     border-width: 3px;
-    border-color: white;
+    border-color: #fff;
     text-indent: -2em;
     text-transform: uppercase;
-    transition: all $duration; 
+    transition: all $duration + .2s ease-out;
     z-index: 1;
     &:after {
       content: '';
@@ -35,7 +35,7 @@ $radius: 5px;
       width: 0;
       height: 100%;
       background-color: $green;
-      transition: all $duration + .3s;
+      transition: all $duration + .2s ease-out;
       z-index: -1;
     }
     &:hover {
@@ -50,7 +50,7 @@ $radius: 5px;
     $padding-tb: 1em;
     $padding-rl: 0;
     $padding: $padding-tb $padding-rl;
-    $border-width: .25em;
+    $border-width: .2em;
     $content-box: ( $font-size + $padding-tb * 2 + $border-width * 2 ) / 2 * -1;
     $color: $green;
 
@@ -62,6 +62,7 @@ $radius: 5px;
     margin-left: auto;
     margin-right: auto;
     border: none;
+    transform: translate3d(0,0,0);
     &:before,
     &:after {
       position: absolute;
@@ -70,6 +71,7 @@ $radius: 5px;
       bottom: 0;
       left: 0;
       padding: $padding;
+      font-family: FontAwesome;
       font-size: $font-size;
       font-weight: 400;
       text-align: center;
@@ -78,20 +80,21 @@ $radius: 5px;
       border-radius: $radius;
 
       transform-origin: 50% 50% $content-box;
-      transition-property: transform;
+      transition-property: transform opacity;
       transition-duration: $duration;
     }
     &:before {
-      content: 'read more';
-      color: $green;
-      line-height: 1.2;
-      border: $border-width solid $green;
+      content: 'read more \0000a0\0000a0\f138';
+      background-color: $green;
+      color:#fff;
+      text-indent: 2px;
     }
     &:after {
-      content: 'go next';
+      content: 'go next page \0000a0\0000a0\f08e';
       color: #fff;
-      background-color: $green;
+      background-color: $blue;
       transform: rotateX(-90deg);
+      opacity: .2;
     }
     &:hover {
       &:before {
@@ -100,6 +103,7 @@ $radius: 5px;
       }
       &:after {
         transform: rotateX(0);
+        opacity: 1;
       }
     }
   }

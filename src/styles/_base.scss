@@ -6,6 +6,7 @@ $color-text-gray: #848484;
 
 $green: #2ecc71;
 $brown: #3c251c;
+$blue: #2ecbcc;
 
 .cf:before,
 .cf:after {
@@ -107,7 +108,7 @@ img {
     z-index: 1;
     animation-name: outin;
     animation-duration: 1.5s;
-    animation-delay: 4s;
+    animation-delay: 3s;
     animation-fill-mode: forwards;
     transform: translate3d(0,0,0);
     @keyframes outin {
