@@ -1,37 +1,39 @@
-header = null
+header = document.getElementById 'top'
 btn = document.querySelector '.btn--hero'
 icons = document.querySelectorAll '.hero .nav__item'
+
+styleEl = document.createElement 'style'
+document.head.appendChild styleEl
+
+runCanvas = true
+over = false
 
 window.onload = ->
   btn.addEventListener 'mouseenter', popup
   btn.addEventListener 'mouseleave', popdown
-  window.addEventListener 'resize', drow_canvas
   window.addEventListener 'scroll', scroll
+  window.addEventListener 'resize', drow_canvas
   drow_canvas()
 
 drow_canvas = ->
   canvas = document.getElementById 'js-bubble'
-  header = document.getElementById 'top'
   ctx = canvas.getContext '2d'
   cw = canvas.width = window.innerWidth
   ch = canvas.height = header.clientHeight
   circles = []
-  num = cw / 3
-
-  header.style.pointerEvents = 'none'
+  num = cw / 10
 
   class Circle
     constructor: ->
+      @first = if @first is undefined then true else false
       @x = Math.random() * cw
-      @y = ch + Math.random() * 100
-      @r = 1 + Math.random() * 30
-      @alpha = 0.1 + Math.random() * 0.3
-      @velocity = 3 + Math.random() * 5
+      @y = if @first then Math.random() * ch else ch
+      @r = 0.5 + Math.random() * 3
+      @alpha = 0.3 + Math.random() * 0.5
+      @velocity = 0.5 + Math.random() * 2
 
     draw: ->
-      @alpha -= 0.0003
-
-      # @constructor() if @alpha < 0 or @y < 0
+      @constructor() if @y < 0
 
       ctx.beginPath()
       ctx.arc @x, @y, @r, 0, Math.PI * 2, false
@@ -39,41 +41,37 @@ drow_canvas = ->
       ctx.fill()
       @y -= @velocity
 
-  for i in [0...num]
-    circles.push new Circle()
-  
-  (draw = ->
-    return if timer is 'end'
-    ctx.clearRect 0, 0, cw, ch
+  circles.push new Circle() for i in [0...num]
 
-    circles.forEach (c) ->
-      c.draw()
+  (draw = ->
+    return if !runCanvas
+    ctx.clearRect 0, 0, cw, ch
+    c.draw() for c in circles
 
     requestAnimationFrame draw
   )()
 
-  timer = ''
-  setTimeout ->
-    timer = 'end'
-  , 5000
-
-  setTimeout ->
-    header.style.pointerEvents = 'auto'
-  , 3000
-
 scroll = ->
   scroll = window.scrollY
-  if 0 < scroll < header.clientHeight 
-    header.style.webkitFilter = 'blur(' + scroll / 100 + 'px)' 
+  if scroll > header.clientHeight
+    over = true
+    runCanvas = false
+    return
+  else
+    runCanvas = true
+    drow_canvas() if over
+    over = false
+
+  if 50 < scroll < header.clientHeight 
+    header.style.webkitFilter = 'blur(' + scroll / 80 + 'px)' 
   else
     header.style.webkitFilter = 'blur(0)'
 
-popup = (e) ->
-  for icon in icons
-    icon.classList.add 'popup' 
-    icon.classList.remove 'popdown' 
+  styleEl.innerHTML = '.hero:after{transform: translate3d(' + scroll + 'px,0,0);}'
 
-popdown = (e) ->
-  for icon in icons
-    icon.classList.remove 'popup' 
-    icon.classList.add 'popdown' 
+popup = -> toggleClass icon, 'popup', 'popdown' for icon in icons
+popdown = -> toggleClass icon, 'popdown', 'popup' for icon in icons
+
+toggleClass = (el, add, remove) ->
+  el.classList.add add
+  el.classList.remove remove
