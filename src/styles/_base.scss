@@ -7,6 +7,19 @@ $color-text-gray: #848484;
 $green: #2ecc71;
 $brown: #3c251c;
 
+.cf:before,
+.cf:after {
+    content: " ";
+    display: table;
+}
+
+.cf:after {
+    clear: both;
+}
+
+.cf {
+  *zoom: 1;
+}
 
 *,
 *:before,
@@ -39,7 +52,6 @@ ul {
   margin: 0;
   padding: 0;
   list-style: none;
-  overflow: hidden;
   li {
     float: left;
   }
@@ -97,6 +109,7 @@ img {
     animation-duration: 1.5s;
     animation-delay: 4s;
     animation-fill-mode: forwards;
+    transform: translate3d(0,0,0);
     @keyframes outin {
       0% {
         left: 100%;

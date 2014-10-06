@@ -10,6 +10,7 @@ $radius: 5px;
   font-size: 18px;
   text-align: center;
   border-radius: 5px;
+  transform: translate3d(0,0,0);
   &:hover {
     text-decoration: none;
   }
@@ -22,6 +23,7 @@ $radius: 5px;
     background-color: rgba(0,0,0,.1);
     border-width: 3px;
     border-color: white;
+    text-indent: -2em;
     text-transform: uppercase;
     transition: all $duration; 
     z-index: 1;
@@ -32,16 +34,14 @@ $radius: 5px;
       left: 0;
       width: 0;
       height: 100%;
-      background-color: rgba(0, 0, 0, 0.3);
-      transition: width $duration;
+      background-color: $green;
+      transition: all $duration + .3s;
       z-index: -1;
     }
     &:hover {
+      border-color: $green;
       &:after {
         width: 100%;
-      }
-      .svg-icon {
-        transform: rotate(360deg);
       }
     }
   }
@@ -102,23 +102,6 @@ $radius: 5px;
         transform: rotateX(0);
       }
     }
-  }
-}
-
-.svg-icon {
-  $size: 1.2em;
-  width: $size;
-  height: $size;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 32px;
-  margin: auto;
-  transition: $duration;
-  transition-property: transform;
-  transition-duration: $duration;
-  path {
-    fill: white;
   }
 }
 

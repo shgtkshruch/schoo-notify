@@ -1,9 +1,13 @@
 header = null
+btn = document.querySelector '.btn--hero'
+icons = document.querySelectorAll '.hero .nav__item'
 
 window.onload = ->
-  drow_canvas()
+  btn.addEventListener 'mouseenter', popup
+  btn.addEventListener 'mouseleave', popdown
   window.addEventListener 'resize', drow_canvas
   window.addEventListener 'scroll', scroll
+  drow_canvas()
 
 drow_canvas = ->
   canvas = document.getElementById 'js-bubble'
@@ -12,15 +16,15 @@ drow_canvas = ->
   cw = canvas.width = window.innerWidth
   ch = canvas.height = header.clientHeight
   circles = []
-  num = cw / 7
+  num = cw / 12
 
   class Circle
     constructor: ->
       @x = Math.random() * cw
       @y = ch + Math.random() * 100
-      @r = 1 + Math.random() * 7
+      @r = 1 + Math.random() * 10
       @alpha = 0.1 + Math.random() * 0.3
-      @velocity = 0.5 + Math.random() * 2
+      @velocity = 0.3 + Math.random() * 2
 
     draw: ->
       @alpha -= 0.0003
@@ -52,4 +56,12 @@ scroll = ->
   else
     header.style.webkitFilter = 'blur(0)'
 
+popup = (e) ->
+  for icon in icons
+    icon.classList.add 'popup' 
+    icon.classList.remove 'popdown' 
 
+popdown = (e) ->
+  for icon in icons
+    icon.classList.remove 'popup' 
+    icon.classList.add 'popdown' 

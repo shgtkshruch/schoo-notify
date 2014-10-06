@@ -6,6 +6,8 @@ html(lang="ja")
     meta(content='width=device-width, initial-scale=1' name='viewport')
     
     link(href='http://fonts.googleapis.com/css?family=Raleway:600' rel='stylesheet' type='text/css')
+    link(href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet")
+
     // build:css styles/vendor.css
     // bower:css
     link(rel='stylesheet', href='../bower_components/normalize.css/normalize.css')
@@ -20,14 +22,12 @@ html(lang="ja")
         h1.hero__title Notify
         h2.hero__body A great new free psd theme to showcase  your new application. 
         .nav
-          ul.nav__inner
-            - for(var i = 0; i < 3; i++)
+          ul.nav__inner.cf
+            each icon in ['apple', 'android', 'windows']
               li.nav__item
-                a(href="#")
-                  img(src="images/hero__icon-#{i+1}.png")
+                i(class="fa fa-#{icon}")
         a(href="#").btn.btn--hero Download
-          svg(class="svg-icon" viewBox="0 0 20 20")
-            path(fill="none" d="M14.989,9.491L6.071,0.537C5.78,0.246,5.308,0.244,5.017,0.535c-0.294,0.29-0.294,0.763-0.003,1.054 l8.394,8.428L5.014,18.41c-0.291,0.291-0.291,0.763,0,1.054c0.146,0.146,0.335,0.218,0.527,0.218c0.19,0,0.382-0.073,0.527-0.218 l8.918-8.919C15.277,10.254,15.277,9.784,14.989,9.491z")
+          i.fa.fa-cloud-download
 
     section.section#feature
       .section__inner
@@ -58,10 +58,10 @@ html(lang="ja")
         p Lorem ipsum dolor sit amet, consectetur adipiscing elit suspendisse. 
         .testimonial__nav.nav
           ul.nav__inner
-            - for(var i = 0; i < 6; i++)
+            each icon in ['twitter', 'facebook', 'pinterest', 'google-plus', 'linkedin', 'youtube']
               li.nav__item
                 a(href="#")
-                  img(src="images/sns-icon-#{i+1}.png")
+                  i(class="fa fa-#{icon}")
 
     footer.section--footer.section--odd#footer
       .section__inner
