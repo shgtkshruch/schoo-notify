@@ -190,6 +190,10 @@ img {
   }
 }
 
+.rotate {
+  transform: rotate(70deg);
+}
+
 .item {
   $margin: 100px;
   $width: ($width-body - $margin * 2) / 3;
@@ -203,6 +207,7 @@ img {
   &__img {
     display: block;
     margin: 0 auto;
+    transition:transform .1s linear;
   }
   &__title {
     font-size: 22px;

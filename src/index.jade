@@ -39,7 +39,7 @@ html(lang="ja")
             img.item__img(src="images/item__img-#{i+1}.png")
             h1.section__title #{t}
             p.item__body Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse fringilla fringilla.
-            a(href="#").btn.btn--rotate Read More
+            a(href="#" data-num="#{i + 1}").btn.btn--rotate Read More
     
     section.section.section--odd#notify
       .section__inner
