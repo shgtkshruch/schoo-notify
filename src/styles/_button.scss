@@ -54,10 +54,7 @@ $radius: 5px;
 
     width: 15em;
     padding: $padding;
-    text-indent: 100%;
     text-indent: -9999em;
-    // white-space: nowrap;
-    // overflow: hidden;
     margin: 2em auto 2.5em;
     transform: translate3d(0,0,0);
     &:before,
