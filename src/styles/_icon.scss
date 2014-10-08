@@ -11,6 +11,7 @@
     width: 55px;
     height: 55px;
     font-size: 26px;
+    opacity: .6;
     background-color: #000;
     border-radius: 50%;
     transition-duration: .3s;
@@ -21,11 +22,12 @@
   .hero .btn & {
     position: absolute;
     top: 0;
-    right: .5em;
+    right: .2em;
     bottom: 0;
     margin: auto;
     font-size: 28px;
     color: #fff;
+    opacity: 1;
     background-color: transparent;
   }
   .testimonial__nav & {
@@ -62,6 +64,7 @@ $delay-unit: $duration / 10;
   }
 
   & .fa {
+    opacity: 1;
     animation-name: bgc;
     animation-duration: .5s;
     animation-fill-mode: forwards;
@@ -81,6 +84,7 @@ $delay-unit: $duration / 10;
       transform: translateY(-1em);
     }
     100% {
+      opacity: 1;
       transform: translateY(0);
     }
   }
@@ -93,7 +97,8 @@ $delay-unit: $duration / 10;
 
 .popdown {
   & .fa {
-    animation-name: bgcd;
+    opacity: 1;
+    animation-name: fadeout;
     animation-duration: .3s;
     animation-fill-mode: forwards;
     animation-timing-function: linear;
@@ -105,11 +110,12 @@ $delay-unit: $duration / 10;
       animation-delay: $delay-init + $delay-unit * (3 - $i);
     }
   }
-  @keyframes bgcd {
+  @keyframes fadeout {
     0% {
       background-color: $green;
     }
     100% {
+      opacity: .6;
       background-color: black;
     }
   }

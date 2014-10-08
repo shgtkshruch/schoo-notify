@@ -18,7 +18,7 @@ $radius: 5px;
     width: 280px;
     margin: 1em 0;
     font-size: 20px;
-    letter-spacing: .1em;
+    letter-spacing: .2em;
     color: #fff;
     background-color: rgba(0,0,0,.1);
     border-width: 3px;
@@ -56,11 +56,10 @@ $radius: 5px;
 
     display: block;
     position: relative;
-    width: 13em;
+    width: 15em;
     padding: $padding;
     text-indent: -9999em;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 2em auto 2.5em;
     border: none;
     transform: translate3d(0,0,0);
     &:before,
@@ -71,11 +70,13 @@ $radius: 5px;
       bottom: 0;
       left: 0;
       padding: $padding;
+      color:#fff;
       font-family: FontAwesome;
       font-size: $font-size;
       font-weight: 400;
       text-align: center;
       text-indent: 0;
+      letter-spacing: .1em;
       text-transform: uppercase;
       border-radius: $radius;
 
@@ -84,14 +85,12 @@ $radius: 5px;
       transition-duration: $duration;
     }
     &:before {
-      content: 'read more \0000a0\0000a0\f138';
+      content: 'read more\0000a0\0000a0\f138';
       background-color: $green;
-      color:#fff;
       text-indent: 2px;
     }
     &:after {
-      content: 'go next page \0000a0\0000a0\f08e';
-      color: #fff;
+      content: 'go next page\0000a0\0000a0\f08e';
       background-color: $blue;
       transform: rotateX(-90deg);
       opacity: .2;

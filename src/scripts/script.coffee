@@ -1,4 +1,4 @@
-header = document.getElementById 'top'
+header = document.querySelector '#top'
 btnHero = document.querySelector '.btn--hero'
 btnRotate = document.querySelectorAll '.btn--rotate'
 btnImgs = document.querySelectorAll '.item__img'
@@ -17,7 +17,7 @@ scroll = ->
   return if scroll > header.clientHeight
 
   if 50 < scroll < header.clientHeight 
-    header.style.webkitFilter = 'blur(' + scroll / 80 + 'px)' 
+    header.style.webkitFilter = 'blur(' + scroll / 50 + 'px)' 
   else
     header.style.webkitFilter = 'blur(0)'
 
