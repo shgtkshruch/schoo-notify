@@ -1,4 +1,4 @@
-header = document.querySelector '#top'
+header = document.querySelector '#js-header'
 btnHero = document.querySelector '.btn--hero'
 btnRotate = document.querySelectorAll '.btn--rotate'
 btnImgs = document.querySelectorAll '.item__img'

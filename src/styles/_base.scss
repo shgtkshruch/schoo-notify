@@ -8,20 +8,6 @@ $green: #2ecc71;
 $brown: #3c251c;
 $blue: #2ecbcc;
 
-.cf:before,
-.cf:after {
-    content: " ";
-    display: table;
-}
-
-.cf:after {
-    clear: both;
-}
-
-.cf {
-  *zoom: 1;
-}
-
 *,
 *:before,
 *:after {
@@ -156,13 +142,22 @@ img {
     margin: 0 auto;
   }
   &--odd {
+    @extend .section;
     background-color: $color-bg-gray;
   }
-  &--big {
+  &--test {
+    @extend .section;
     padding: 50px 0 55px;
+    text-align: center;
+    &__img {
+      margin-bottom: 30px;
+    }
   }
   &--footer {
+    @extend .section;
+    background-color: $color-bg-gray;
     padding: 50px 0;
+    text-align: center;
   }
   &__left {
     float: left;
@@ -190,14 +185,20 @@ img {
     font-family: Raleway, sans-serif;
     font-size: 22px;
     line-height: 1;
-    color: black;
+    color: #000;
     text-align: center;
-    &--big {
+    &--primary {
+      @extend .section__title;
       font-size: 24px;
     }
     &--secondary {
+      @extend .section__title;
       margin: 25px 0;
       font-size: 18px;
+    }
+    &--left {
+      @extend .section__title;
+      text-align: left;
     }
   }
 }
@@ -215,7 +216,7 @@ img {
   &__img {
     display: block;
     margin: 0 auto;
-    transition:transform .1s linear;
+    transition:transform .2s linear;
   }
   &__title {
     font-size: 22px;
@@ -226,27 +227,14 @@ img {
   }
 }
 
-.testimonial {
-  text-align: center;
-  &__img {
-    margin-bottom: 30px;
-  }
-}
-
 .nav {
-  &--center {
-    display: block;
-    text-align: center;
-  }
-  &__inner {
-    display: inline-block;
-  }
+  display: inline-block;
   &__item {
     margin-right: 50px;
     .hero & {
       margin-right: 20px;
     }
-    .testimonial & {
+    .section--test & {
       margin-right: 10px;
     }
     &:last-child {
@@ -289,8 +277,4 @@ img {
 
 .rotate {
   transform: rotate(70deg);
-}
-
-.u-tal {
-  text-align: left;
 }

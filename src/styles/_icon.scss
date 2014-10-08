@@ -1,5 +1,6 @@
 .fa {
   position: relative;
+  color: #fff;
   &:before {
     position: absolute;
     top: 50%;
@@ -7,7 +8,6 @@
     transform: translate(-50%, -50%);
   }
   .hero & {
-    color: #fff;
     width: 55px;
     height: 55px;
     font-size: 26px;
@@ -15,9 +15,6 @@
     background-color: #000;
     border-radius: 50%;
     transition-duration: .3s;
-    &:before {
-      transform: translate3d(-50%, -50%, 0);
-    }
   }
   .hero .btn & {
     position: absolute;
@@ -26,20 +23,15 @@
     bottom: 0;
     margin: auto;
     font-size: 28px;
-    color: #fff;
     opacity: 1;
     background-color: transparent;
   }
-  .testimonial__nav & {
+  .section--test & {
     width: 35px;
     height: 35px;
     border-radius: 50%;
     font-size: 20px;
-    color: #fff;
     background-color: #c8c8c8;
-    &:before {
-      transform: translate3d(-50%, -50%, 0);
-    }
     &:hover {
       background-color: $green;
     }

@@ -2,7 +2,6 @@
   "name": "notify",
   "private": true,
   "dependencies": {
-    "jquery": "*",
     "normalize.css": "~3.0.1"
   },
   "devDependencies": {}

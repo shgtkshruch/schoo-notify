@@ -16,63 +16,56 @@ html(lang="ja")
 
     link(rel='stylesheet', href='styles/style.css', media='all')
   body
-    header.hero#top
-      .section__inner
-        h1.hero__title Notify
-        h2.hero__body A great new free psd theme to showcase  your new application. 
-        .nav
-          ul.nav__inner.cf
+    article
+      header.hero#js-header
+        .section__inner
+          h1.hero__title Notify
+          h2.hero__body A great new free psd theme to showcase  your new application. 
+          ul.nav
             each icon in ['apple', 'android', 'windows']
               li.nav__item
                 i(class="fa fa-#{icon}")
-        a(href="#").btn.btn--hero Download
-          i.fa.fa-cloud-download
+          a(href="#").btn.btn--hero Download
+            i.fa.fa-cloud-download
 
-    section.section#feature
-      .section__inner
-        - each t, i in ['Editable Theme', 'Flat Design', 'Reach Your Audience']
-          .item
-            img.item__img(src="images/item__img-#{i+1}.png")
-            h1.section__title #{t}
-            p.item__body Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse fringilla fringilla.
-            a(href="#" data-num="#{i + 1}").btn.btn--rotate Read More
-    
-    section.section.section--odd#notify
-      .section__inner
-        .section__left
-          h1.section__title.u-tal Get Notified Of Any Updates!
-          p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse fringilla fringilla nisl congue congue. Maecenas nec condimentum libero, at elementum mauris. Phasellus eget nisi dapibus, ultricies nisl at, hendrerit risusuis ornare luctus id sollicitudin ante lobortis at.
-          form.form
-            input.form__input(type="text" placeholder="Email Address" required)
-            input.form__btn(type="submit" value="Notify")
-        .section__right
-          img.video(src="images/video.jpg")
+      section.section
+        .section__inner
+          - each t, i in ['Editable Theme', 'Flat Design', 'Reach Your Audience']
+            .item
+              img.item__img(src="images/item__img-#{i+1}.png")
+              h1.section__title #{t}
+              p.item__body Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse fringilla fringilla.
+              a(href="#" data-num="#{i + 1}").btn.btn--rotate Read More
+      
+      section.section--odd
+        .section__inner
+          .section__left
+            h1.section__title--left Get Notified Of Any Updates!
+            p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse fringilla fringilla nisl congue congue. Maecenas nec condimentum libero, at elementum mauris. Phasellus eget nisi dapibus, ultricies nisl at, hendrerit risusuis ornare luctus id sollicitudin ante lobortis at.
+            form.form
+              input.form__input(type="text" placeholder="Email Address" required)
+              input.form__btn(type="submit" value="Notify")
+          .section__right
+            img(src="images/video.jpg")
 
-    section.section.section--big.testimonial#testimonial
-      .section__inner
-        p.section__body--em Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris interdum velit vitae nulla molestie eu commodo nulla dapib us. Donec id sollicitudin urna. Integer at dui ac leo fermentum varius eleifend ut.
-        h2.section__title.section__title--secondary Jane Hunt
-        img.testimonial__img(src="images/faces.jpg")
-        h1.section__title.section__title--big Say Hi & Get in Touch
-        p Lorem ipsum dolor sit amet, consectetur adipiscing elit suspendisse. 
-        .testimonial__nav.nav
-          ul.nav__inner
+      section.section--test
+        .section__inner
+          p.section__body--em Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris interdum velit vitae nulla molestie eu commodo nulla dapib us. Donec id sollicitudin urna. Integer at dui ac leo fermentum varius eleifend ut.
+          h2.section__title--secondary Jane Hunt
+          img.section--test__img(src="images/faces.jpg")
+          h1.section__title--primary Say Hi & Get in Touch
+          p Lorem ipsum dolor sit amet, consectetur adipiscing elit suspendisse. 
+          ul.nav
             each icon in ['twitter', 'facebook', 'pinterest', 'google-plus', 'linkedin', 'youtube']
               li.nav__item
                 a(href="#")
                   i(class="fa fa-#{icon}")
 
-    footer.section--footer.section--odd#footer
-      .section__inner
-        nav.nav.nav--center
-          ul.nav__inner
+      footer.section--footer
+        .section__inner
+          ul.nav
             each l in ['Contact', 'Download', 'Press', 'Email', 'Support', 'Privacy Policy']
               li.nav__item
                 a(href="#") #{l}
 
-    // build:js scripts/vendor.js
-    // bower:js
-    script(src='../bower_components/jquery/dist/jquery.js')
-    // endbower
-    // endbuild
     script(src='scripts/script.js')
