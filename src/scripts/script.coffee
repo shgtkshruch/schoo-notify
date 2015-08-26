@@ -62,8 +62,8 @@ scroll = ->
     drow_canvas() if over
     over = false
 
-  if 50 < scroll < header.clientHeight 
-    header.style.webkitFilter = 'blur(' + scroll / 80 + 'px)' 
+  if 50 < scroll < header.clientHeight
+    header.style.webkitFilter = 'blur(' + scroll / 80 + 'px)'
   else
     header.style.webkitFilter = 'blur(0)'
 
